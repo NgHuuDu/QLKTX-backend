@@ -1,0 +1,12 @@
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\bin\Debug\net8.0\Dormitory.Models.deps.json
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\bin\Debug\net8.0\Dormitory.Models.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\bin\Debug\net8.0\Dormitory.Models.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.AssemblyInfoInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.AssemblyInfo.cs
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.csproj.CoreCompileInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\refint\Dormitory.Models.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\ref\Dormitory.Models.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.Models\obj\Debug\net8.0\Dormitory.Models.csproj.AssemblyReference.cache

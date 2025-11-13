@@ -1,0 +1,15 @@
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\bin\Debug\net8.0\Dormitory.DAO.deps.json
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\bin\Debug\net8.0\Dormitory.DAO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\bin\Debug\net8.0\Dormitory.DAO.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\bin\Debug\net8.0\Dormitory.Models.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\bin\Debug\net8.0\Dormitory.Models.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.csproj.AssemblyReference.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.AssemblyInfoInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.AssemblyInfo.cs
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.csproj.CoreCompileInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitor.AFE91233.Up2Date
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\refint\Dormitory.DAO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\Dormitory.DAO.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DAO\obj\Debug\net8.0\ref\Dormitory.DAO.dll

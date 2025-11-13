@@ -1,0 +1,11 @@
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\bin\Debug\net8.0\Dormitory.DTO.deps.json
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\bin\Debug\net8.0\Dormitory.DTO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\bin\Debug\net8.0\Dormitory.DTO.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.AssemblyInfoInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.AssemblyInfo.cs
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.csproj.CoreCompileInputs.cache
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\refint\Dormitory.DTO.dll
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\Dormitory.DTO.pdb
+D:\Work\Code\CSharp\DormitoryManagementSystem\Dormitory.DTO\obj\Debug\net8.0\ref\Dormitory.DTO.dll

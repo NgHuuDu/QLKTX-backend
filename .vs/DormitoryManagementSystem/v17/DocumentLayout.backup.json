@@ -1,0 +1,329 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\violationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\violationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\rolebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\rolebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\dormitory.bus.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\dormitory.bus.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\buildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\buildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\violationbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\violationbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\userbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\userbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\studentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\studentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\roombus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\roombus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\paymentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\paymentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\contractbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\contractbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitoryapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DDB367B-6486-4EBA-9CC5-11E431A55033}|DormitoryAPI\\DormitoryAPI.csproj|solutionrelative:dormitoryapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.bus\\implementations\\buildingbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E0DA8C7-1B4D-42C0-A76E-98C6CDDB9129}|Dormitory.BUS\\Dormitory.BUS.csproj|solutionrelative:dormitory.bus\\implementations\\buildingbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE810C2-C557-4241-B813-A6CCC766A650}|Dormitory.DAO\\Dormitory.DAO.csproj|c:\\users\\huu du\\documents\\ltcsdl\\doancuoiky\\dormitorymanagementsystem\\dormitory.dao\\interfaces\\istudentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE810C2-C557-4241-B813-A6CCC766A650}|Dormitory.DAO\\Dormitory.DAO.csproj|solutionrelative:dormitory.dao\\interfaces\\istudentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:11:51.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:03:55.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\PaymentController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAD0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:03:50.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ContractController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\ContractController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\ContractController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\ContractController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\ContractController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:03:33.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BuildingController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\BuildingController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\BuildingController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\BuildingController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\BuildingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:01:48.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Program.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Program.cs",
+              "RelativeToolTip": "DormitoryAPI\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:52:16.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViolationController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\ViolationController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\ViolationController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\ViolationController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\ViolationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:40:35.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dormitory.BUS.csproj",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Dormitory.BUS.csproj",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Dormitory.BUS.csproj",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Dormitory.BUS.csproj",
+              "RelativeToolTip": "Dormitory.BUS\\Dormitory.BUS.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-05T16:01:09.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoomController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\RoomController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\RoomController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\RoomController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\RoomController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:11:47.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoleBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\RoleBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\RoleBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\RoleBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\RoleBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:54:15.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ViolationBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\ViolationBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\ViolationBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\ViolationBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\ViolationBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:00:57.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\UserBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\UserBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\UserBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\UserBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:00:51.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StudentBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\StudentBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\StudentBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\StudentBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\StudentBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:57:26.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RoomBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\RoomBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\RoomBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\RoomBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\RoomBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:56:21.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\PaymentBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\PaymentBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\PaymentBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\PaymentBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:53:33.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ContractBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\ContractBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\ContractBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\ContractBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\ContractBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:52:34.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "DormitoryAPI\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\DormitoryAPI\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "DormitoryAPI\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:52:18.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BuildingBUS.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\BuildingBUS.cs",
+              "RelativeDocumentMoniker": "Dormitory.BUS\\Implementations\\BuildingBUS.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.BUS\\Implementations\\BuildingBUS.cs",
+              "RelativeToolTip": "Dormitory.BUS\\Implementations\\BuildingBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:51:36.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IStudentDAO.cs",
+              "DocumentMoniker": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.DAO\\Interfaces\\IStudentDAO.cs",
+              "RelativeDocumentMoniker": "Dormitory.DAO\\Interfaces\\IStudentDAO.cs",
+              "ToolTip": "C:\\Users\\HUU DU\\Documents\\LTCSDL\\DoAnCuoiKy\\DormitoryManagementSystem\\Dormitory.DAO\\Interfaces\\IStudentDAO.cs",
+              "RelativeToolTip": "Dormitory.DAO\\Interfaces\\IStudentDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:51:29.859Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

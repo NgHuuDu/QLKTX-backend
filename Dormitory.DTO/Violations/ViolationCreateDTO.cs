@@ -1,0 +1,10 @@
+﻿namespace Dormitory.DTO.Violations
+{
+    public class ViolationCreateDTO
+    {
+        public string UserID { get; set; } = string.Empty;
+        public string ViolationType {  get; set; } = string.Empty;
+        public DateOnly ViolationDate { get; set; } = new DateOnly();
+        public decimal PenaltyFee { get; set; }
+    }
+}
