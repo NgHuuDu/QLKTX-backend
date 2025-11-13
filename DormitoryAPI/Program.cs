@@ -25,6 +25,27 @@ if (app.Environment.IsDevelopment())
     
 }
 
+// --- Bắt đầu đoạn code thêm ---
+// Tự động tạo bảng Database khi khởi động
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        // Lưu ý: Đổi 'DormitoryContext' thành tên đúng của DbContext trong code bạn
+        var context = services.GetRequiredService<DormitoryContext>();
+        
+        // Lệnh này sẽ tự động tạo bảng nếu chưa có
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Lỗi khi khởi tạo Database.");
+    }
+}
+// --- Kết thúc đoạn code thêm ---
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
