@@ -23,7 +23,7 @@ namespace DormitoryAPI.Controllers
             return Ok(students);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetStudentByID(string id)
         {
             try
