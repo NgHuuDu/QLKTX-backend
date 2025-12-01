@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using DormitoryManagementSystem.BUS.Implementations;
 using DormitoryManagementSystem.BUS.Interfaces;
 using DormitoryManagementSystem.DAO.Context;
@@ -7,6 +7,9 @@ using DormitoryManagementSystem.DAO.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
