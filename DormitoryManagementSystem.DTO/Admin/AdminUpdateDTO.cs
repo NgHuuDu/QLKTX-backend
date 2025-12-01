@@ -4,24 +4,24 @@ namespace DormitoryManagementSystem.DTO.Admins
 {
     public class AdminUpdateDTO
     {
-        [Required(ErrorMessage = "Full Name is required")]
-        [StringLength(100, ErrorMessage = "Full Name cannot exceed 100 chars")]
+        [Required(ErrorMessage = "Họ tên là bắt buộc")]
+        [StringLength(100, ErrorMessage = "Họ tên không được quá 100 ký tự")]
         public string FullName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "ID Card is required")]
-        [StringLength(12, MinimumLength = 12, ErrorMessage = "ID Card must be exactly 12 characters")]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "ID Card must contain only numbers")]
+        [Required(ErrorMessage = "Số CCCD là bắt buộc")]
+        [StringLength(12, MinimumLength = 12, ErrorMessage = "Số CCCD phải có đúng 12 ký tự")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Số CCCD chỉ được chứa số")]
         public string IDcard { get; set; } = string.Empty;
 
-        [RegularExpression("^(Male|Female)$", ErrorMessage = "Gender must be 'Male' or 'Female'")]
+        [RegularExpression("^(Male|Female)$", ErrorMessage = "Giới tính phải là 'Male' hoặc 'Female'")]
         public string? Gender { get; set; }
 
-        [Phone(ErrorMessage = "Invalid Phone Number format")]
-        [StringLength(15)]
+        [Phone(ErrorMessage = "Định dạng số điện thoại không hợp lệ")]
+        [StringLength(15, ErrorMessage = "Số điện thoại không được quá 15 ký tự")]
         public string? PhoneNumber { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
-        [StringLength(100)]
+        [EmailAddress(ErrorMessage = "Định dạng Email không hợp lệ")]
+        [StringLength(100, ErrorMessage = "Email không được quá 100 ký tự")]
         public string? Email { get; set; }
     }
 }

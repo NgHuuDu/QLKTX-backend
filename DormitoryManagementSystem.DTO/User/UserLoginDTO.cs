@@ -4,14 +4,13 @@ namespace DormitoryManagementSystem.DTO.Users
 {
     public class UserLoginDTO
     {
-        [Required(ErrorMessage = "Username is required")]
+        [Required(ErrorMessage = "Vui lòng nhập tên đăng nhập")]
         public string UserName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Password is required")]
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
         public string Password { get; set; } = string.Empty;
 
-        //Thêm role để phân biệt user đăng nhập là admin hay student
-        [Required]
+        [Required(ErrorMessage = "Vui lòng chọn vai trò")]
         public string Role { get; set; } = string.Empty;
     }
 }

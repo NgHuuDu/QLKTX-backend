@@ -43,7 +43,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<ContractReadDTO?> GetContractByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Contract ID cannot be empty");
+                throw new ArgumentException("Contract ID không thể để trống");
 
             Contract? contract = await _contractDAO.GetContractByIDAsync(id);
             if (contract == null) return null;
@@ -54,7 +54,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<ContractReadDTO>> GetContractsByStudentIDAsync(string studentId)
         {
             if (string.IsNullOrWhiteSpace(studentId))
-                throw new ArgumentException("Student ID cannot be empty");
+                throw new ArgumentException("Student ID không thể để trống");
 
             IEnumerable<Contract> contracts = await _contractDAO.GetContractsByStudentIDAsync(studentId);
             return _mapper.Map<IEnumerable<ContractReadDTO>>(contracts);
@@ -63,7 +63,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<ContractReadDTO?> GetActiveContractByStudentIDAsync(string studentId)
         {
             if (string.IsNullOrWhiteSpace(studentId))
-                throw new ArgumentException("Student ID cannot be empty");
+                throw new ArgumentException("Student ID không thể để trống");
 
             Contract? contract = await _contractDAO.GetActiveContractByStudentIDAsync(studentId);
             if (contract == null) return null;
@@ -127,35 +127,35 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Contract? existingContract = await _contractDAO.GetContractByIDAsync(dto.ContractID);
             if (existingContract != null)
-                throw new InvalidOperationException($"Contract with ID {dto.ContractID} already exists.");
+                throw new InvalidOperationException($"Hợp đồng với ID {dto.ContractID} đã tồn tại.");
 
             if (dto.EndTime <= dto.StartTime)
-                throw new ArgumentException("End Date must be after Start Date.");
+                throw new ArgumentException("Ngày kết thúc phải sau ngày bắt đầu.");
 
             Student? student = await _studentDAO.GetStudentByIDAsync(dto.StudentID);
             if (student == null)
-                throw new KeyNotFoundException($"Student with ID {dto.StudentID} not found.");
+                throw new KeyNotFoundException($"Không có sinh viên với ID {dto.StudentID}.");
 
             Contract? activeContract = await _contractDAO.GetActiveContractByStudentIDAsync(dto.StudentID);
             if (activeContract != null)
-                throw new InvalidOperationException($"Student {dto.StudentID} already has an active contract in room {activeContract.Roomid}.");
+                throw new InvalidOperationException($"Sinh viên {dto.StudentID} đã có hợp đồng hoạt động trong phòng {activeContract.Roomid}.");
 
             if (!string.IsNullOrEmpty(dto.StaffUserID))
             {
                 User? staff = await _userDAO.GetUserByIDAsync(dto.StaffUserID);
                 if (staff == null || staff.IsActive == false)
-                    throw new InvalidOperationException("Staff User is invalid or inactive.");
+                    throw new InvalidOperationException("Tài khoản nhân viên không hợp lệ hoặc không hoạt động.");
             }
 
             Room? room = await _roomDAO.GetRoomByIDAsync(dto.RoomID);
             if (room == null)
-                throw new KeyNotFoundException($"Room with ID {dto.RoomID} not found.");
+                throw new KeyNotFoundException($"Không có phòng với ID {dto.RoomID}.");
 
             if (room.Status != "Active")
-                throw new InvalidOperationException($"Room {dto.RoomID} is not Active (Status: {room.Status}).");
+                throw new InvalidOperationException($"Phòng {dto.RoomID} không hoạt động (Trạng thái: {room.Status}).");
 
             if (room.Currentoccupancy >= room.Capacity)
-                throw new InvalidOperationException($"Room {dto.RoomID} is full. Capacity: {room.Capacity}.");
+                throw new InvalidOperationException($"Phòng {dto.RoomID} đã đầy. Sức chứa: {room.Capacity}.");
 
             Contract contractEntity = _mapper.Map<Contract>(dto);
             contractEntity.Createddate = DateTime.Now;
@@ -179,10 +179,10 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Contract? contractEntity = await _contractDAO.GetContractByIDAsync(id);
             if (contractEntity == null)
-                throw new KeyNotFoundException($"Contract with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có hợp đồng với ID {id}.");
 
             if (dto.EndTime <= dto.StartTime)
-                throw new ArgumentException("End Date must be after Start Date.");
+                throw new ArgumentException("Ngày kết thúc phải sau ngày bắt đầu.");
 
             // Handle Logic if Room is Changed or Status is Changed
             string oldRoomID = contractEntity.Roomid;
@@ -211,10 +211,10 @@ namespace DormitoryManagementSystem.BUS.Implementations
                 if (newStatus == "Active")
                 {
                     Room? newRoom = await _roomDAO.GetRoomByIDAsync(newRoomID);
-                    if (newRoom == null) throw new KeyNotFoundException($"New Room {newRoomID} not found.");
+                    if (newRoom == null) throw new KeyNotFoundException($"Không có phòng {newRoomID}.");
 
                     if (newRoom.Currentoccupancy >= newRoom.Capacity)
-                        throw new InvalidOperationException($"New Room {newRoomID} is full.");
+                        throw new InvalidOperationException($"Phòng {newRoomID} đã đầy.");
 
                     newRoom.Currentoccupancy += 1;
                     await _roomDAO.UpdateRoomAsync(newRoom);
@@ -234,7 +234,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
                     else if (oldStatus != "Active" && newStatus == "Active")
                     {
                         if (currentRoom.Currentoccupancy >= currentRoom.Capacity)
-                            throw new InvalidOperationException($"Room {currentRoom.Roomid} is full.");
+                            throw new InvalidOperationException($"Phòng {currentRoom.Roomid} đã đầy.");
                         currentRoom.Currentoccupancy += 1;
                     }
                     await _roomDAO.UpdateRoomAsync(currentRoom);
@@ -250,11 +250,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteContractAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Contract ID cannot be empty");
+                throw new ArgumentException("Contract ID không thể để trống");
 
             Contract? contract = await _contractDAO.GetContractByIDAsync(id);
             if (contract == null)
-                throw new KeyNotFoundException($"Contract with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có hợp đồng với ID {id}.");
 
             if (contract.Status == "Active")
             {

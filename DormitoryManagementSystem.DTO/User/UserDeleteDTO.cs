@@ -4,7 +4,7 @@ namespace DormitoryManagementSystem.DTO.Users
 {
     public class UserDeleteDTO
     {
-        [Required(ErrorMessage = "User ID is required")]
+        [Required(ErrorMessage = "Mã tài khoản là bắt buộc")]
         public string UserID { get; set; } = string.Empty;
     }
 }

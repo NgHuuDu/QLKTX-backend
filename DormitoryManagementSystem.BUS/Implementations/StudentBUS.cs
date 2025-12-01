@@ -38,7 +38,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<StudentReadDTO?> GetStudentByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Student id can not be empty");
+                throw new ArgumentException("Student id không thể để trống");
 
             Student? student = await this._studentDAO.GetStudentByIDAsync(id);
             if (student == null) return null;
@@ -49,7 +49,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<StudentReadDTO?> GetStudentByCCCDAsync(string cccd)
         {
             if (string.IsNullOrWhiteSpace(cccd))
-                throw new ArgumentException("Student cccd can not be empty");
+                throw new ArgumentException("Student cccd không thể để trống");
 
             Student? student = await this._studentDAO.GetStudentByCCCDAsync(cccd);
             if (student == null) return null;
@@ -60,7 +60,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<StudentReadDTO?> GetStudentByEmailAsync(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("Student email can not be empty");
+                throw new ArgumentException("Student email không thể để trống");
 
             Student? student = await this._studentDAO.GetStudentByEmailAsync(email);
             if (student == null) return null;
@@ -72,17 +72,17 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             var existingID = await _studentDAO.GetStudentByIDAsync(dto.StudentID);
             if (existingID != null)
-                throw new InvalidOperationException($"Student with ID {dto.StudentID} already exists.");
+                throw new InvalidOperationException($"Student với ID {dto.StudentID} đã tồn tại.");
 
             var existingCCCD = await _studentDAO.GetStudentByCCCDAsync(dto.CCCD);
             if (existingCCCD != null)
-                throw new InvalidOperationException($"CCCD {dto.CCCD} is already used by another student.");
+                throw new InvalidOperationException($"CCCD {dto.CCCD} đã được sử dụng bởi một sinh viên khác    .");
 
             if (!string.IsNullOrEmpty(dto.Email))
             {
                 var existingEmail = await _studentDAO.GetStudentByEmailAsync(dto.Email);
                 if (existingEmail != null)
-                    throw new InvalidOperationException($"Email {dto.Email} is already used by another student.");
+                    throw new InvalidOperationException($"Email {dto.Email} đã được sử dụng bởi một sinh viên khác.");
             }
 
             Student student = _mapper.Map<Student>(dto);
@@ -100,20 +100,20 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Student? student = await _studentDAO.GetStudentByIDAsync(id);
             if (student == null)
-                throw new KeyNotFoundException($"No student with ID {id} exists.");
+                throw new KeyNotFoundException($"Không có student với ID {id}.");
 
             if (dto.CCCD != student.Idcard)
             {
                 var duplicateCCCD = await _studentDAO.GetStudentByCCCDAsync(dto.CCCD);
                 if (duplicateCCCD != null)
-                    throw new InvalidOperationException($"CCCD {dto.CCCD} is already taken.");
+                    throw new InvalidOperationException($"CCCD {dto.CCCD} đã được sử dụng.");
             }
 
             if (!string.IsNullOrEmpty(dto.Email) && dto.Email != student.Email)
             {
                 var duplicateEmail = await _studentDAO.GetStudentByEmailAsync(dto.Email);
                 if (duplicateEmail != null)
-                    throw new InvalidOperationException($"Email {dto.Email} is already taken.");
+                    throw new InvalidOperationException($"Email {dto.Email} đã được sử dụng.");
             }
 
             _mapper.Map(dto, student);
@@ -124,16 +124,16 @@ namespace DormitoryManagementSystem.BUS.Implementations
 
         public async Task DeleteStudentAsync(string id)
         {
-            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException("ID cannot be empty");
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException("ID không thể để trống");
 
             var student = await _studentDAO.GetStudentByIDAsync(id);
-            if (student == null) throw new KeyNotFoundException($"Student {id} not found.");
+            if (student == null) throw new KeyNotFoundException($"Không có student {id}.");
 
             var activeContract = await _contractDAO.GetActiveContractByStudentIDAsync(id);
             if (activeContract != null)
             {
-                throw new InvalidOperationException($"Cannot delete student {id} because they have an active contract in room {activeContract.Roomid}. " +
-                                                    $"Please terminate the contract first.");
+                throw new InvalidOperationException($"Không thể xóa student {id} vì họ có hợp đồng đang hoạt động trong phòng {activeContract.Roomid}. " +
+                                                    $"Vui lòng kết thúc hợp đồng trước.");
             }
 
             // THAY VÌ XÓA STUDENT -> TA SOFT DELETE USER CỦA HỌ
@@ -216,6 +216,30 @@ namespace DormitoryManagementSystem.BUS.Implementations
             }
 
             return profile;
+        }
+
+        public async Task UpdateContactInfoAsync(string studentId, StudentContactUpdateDTO dto)
+        {
+            var student = await _studentDAO.GetStudentByIDAsync(studentId);
+            if (student == null)
+                throw new KeyNotFoundException($"Không tìm thấy sinh viên với ID {studentId}.");
+           
+
+
+            if (!string.Equals(student.Email, dto.Email, StringComparison.OrdinalIgnoreCase))
+            {
+                var duplicateEmail = await _studentDAO.GetStudentByEmailAsync(dto.Email);
+                if (duplicateEmail != null)
+                {
+                    throw new InvalidOperationException($"Email '{dto.Email}' đã được sử dụng bởi sinh viên khác.");
+                }
+            }
+
+            student.Phonenumber = dto.PhoneNumber;
+            student.Email = dto.Email;
+            student.Address = dto.Address;
+
+            await _studentDAO.UpdateStudentAsync(student);
         }
 
     }

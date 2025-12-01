@@ -34,7 +34,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<NewsReadDTO?> GetNewsByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("News ID cannot be empty");
+                throw new ArgumentException("News ID không thể để trống");
 
             News? news = await _newsDAO.GetNewsByIDAsync(id);
             if (news == null) return null;
@@ -46,20 +46,20 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             var existingNews = await _newsDAO.GetNewsByIDAsync(dto.NewsID);
             if (existingNews != null)
-                throw new InvalidOperationException($"News with ID {dto.NewsID} already exists.");
+                throw new InvalidOperationException($"News với ID {dto.NewsID} đã tồn tại.");
 
             if (!string.IsNullOrEmpty(dto.AuthorID))
             {
                 User? author = await _userDAO.GetUserByIDAsync(dto.AuthorID);
 
                 if (author == null)
-                    throw new KeyNotFoundException($"Author (User) with ID {dto.AuthorID} not found.");
+                    throw new KeyNotFoundException($"Không có tác giả (User) với ID {dto.AuthorID}.");
 
                 if (!author.IsActive)
-                    throw new InvalidOperationException($"Cannot post news because Author account {dto.AuthorID} is inactive/deleted.");
+                    throw new InvalidOperationException($"Không thể đăng tin tức vì tài khoản tác giả {dto.AuthorID} không hoạt động/đã bị xóa.");
 
                 if (author.Role != "Admin")
-                    throw new UnauthorizedAccessException("Only Admins are allowed to post news.");
+                    throw new UnauthorizedAccessException("Chỉ có Admin mới được phép đăng tin tức.");
             }
 
             News newsEntity = _mapper.Map<News>(dto);
@@ -77,7 +77,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             News? newsEntity = await _newsDAO.GetNewsByIDAsync(id);
             if (newsEntity == null)
-                throw new KeyNotFoundException($"News with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có news với ID {id}.");
 
             _mapper.Map(dto, newsEntity);
             newsEntity.Newsid = id;
@@ -88,11 +88,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteNewsAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("News ID cannot be empty");
+                throw new ArgumentException("News ID không thể để trống");
 
             var newsEntity = await _newsDAO.GetNewsByIDAsync(id);
             if (newsEntity == null)
-                throw new KeyNotFoundException($"News with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có news với ID {id}.");
 
             await _newsDAO.DeleteNewsAsync(id);
         }

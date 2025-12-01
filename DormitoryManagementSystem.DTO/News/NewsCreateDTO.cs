@@ -4,31 +4,28 @@ namespace DormitoryManagementSystem.DTO.News
 {
     public class NewsCreateDTO
     {
-        [Required(ErrorMessage = "News ID is required")]
-        [StringLength(10, ErrorMessage = "News ID cannot exceed 10 chars")]
-        [RegularExpression(@"^[a-zA-Z0-9_]*$", ErrorMessage = "News ID must be alphanumeric")]
+        [Required(ErrorMessage = "Mã tin tức là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã tin tức không được quá 10 ký tự")]
+        [RegularExpression(@"^[a-zA-Z0-9_]*$", ErrorMessage = "Mã tin tức chỉ được chứa chữ và số")]
         public string NewsID { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Title is required")]
-        [StringLength(255, ErrorMessage = "Title cannot exceed 255 chars")]
+        [Required(ErrorMessage = "Tiêu đề là bắt buộc")]
+        [StringLength(255, ErrorMessage = "Tiêu đề không được quá 255 ký tự")]
         public string Title { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Content is required")]
-        // Content kiểu TEXT (PostgreSQL) chứa được rất nhiều, nhưng DTO nên chặn 1 giới hạn hợp lý
-        [StringLength(10000, ErrorMessage = "Content is too long")]
+        [Required(ErrorMessage = "Nội dung là bắt buộc")]
+        [StringLength(10000, ErrorMessage = "Nội dung quá dài")]
         public string Content { get; set; } = string.Empty;
 
-        [StringLength(50, ErrorMessage = "Category cannot exceed 50 chars")]
+        [StringLength(50, ErrorMessage = "Danh mục không được quá 50 ký tự")]
         public string? Category { get; set; }
 
-        // 0 = Normal, 1 = High (Pin to top)
-        [Range(0, 1, ErrorMessage = "Priority must be 0 (Normal) or 1 (High)")]
+        [Range(0, 1, ErrorMessage = "Mức độ ưu tiên phải là 0 (Thường) hoặc 1 (Cao)")]
         public int Priority { get; set; } = 0;
 
         public bool IsVisible { get; set; } = true;
 
-        // Nếu FE gửi lên thì validate, nếu BE tự lấy từ Token thì có thể bỏ qua
-        [StringLength(10, ErrorMessage = "Author ID cannot exceed 10 chars")]
+        [StringLength(10, ErrorMessage = "Mã người đăng không được quá 10 ký tự")]
         public string? AuthorID { get; set; }
     }
 }

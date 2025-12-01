@@ -4,21 +4,20 @@ namespace DormitoryManagementSystem.DTO.Payments
 {
     public class PaymentUpdateDTO
     {
-        // Cho phép cập nhật số tiền đã đóng (trường hợp đóng làm nhiều lần)
-        [Range(0, 1000000000, ErrorMessage = "Paid amount must be positive")]
+        [Range(0, 1000000000, ErrorMessage = "Số tiền đã đóng phải là số dương")]
         public decimal PaidAmount { get; set; }
 
-        [Required(ErrorMessage = "Payment Method is required when updating payment")]
-        [RegularExpression("^(Cash|Bank Transfer|Online)$", ErrorMessage = "Method must be 'Cash', 'Bank Transfer', or 'Online'")]
+        [Required(ErrorMessage = "Phương thức thanh toán là bắt buộc khi cập nhật")]
+        [RegularExpression("^(Cash|Bank Transfer)$", ErrorMessage = "Phương thức phải là 'Cash', 'Bank Transfer'")]
         public string PaymentMethod { get; set; } = string.Empty;
 
-        [Required]
-        [RegularExpression("^(Unpaid|Paid|Late|Refunded)$", ErrorMessage = "Status must be valid")]
+        [Required(ErrorMessage = "Trạng thái là bắt buộc")]
+        [RegularExpression("^(Unpaid|Paid|Late|Refunded)$", ErrorMessage = "Trạng thái thanh toán không hợp lệ")]
         public string PaymentStatus { get; set; } = string.Empty;
 
-        public DateTime PaymentDate { get; set; } = DateTime.Now; // Cập nhật lại ngày giờ đóng tiền thực tế
+        public DateTime PaymentDate { get; set; } = DateTime.Now;
 
-        [StringLength(255)]
+        [StringLength(255, ErrorMessage = "Mô tả không được quá 255 ký tự")]
         public string? Description { get; set; }
     }
 }

@@ -4,28 +4,27 @@ namespace DormitoryManagementSystem.DTO.Rooms
 {
     public class RoomUpdateDTO
     {
-        [Required(ErrorMessage = "Room Number is required")]
-        [Range(1, 9999, ErrorMessage = "Room Number must be valid")]
+        [Required(ErrorMessage = "Số phòng là bắt buộc")]
+        [Range(1, 9999, ErrorMessage = "Số phòng không hợp lệ")]
         public int RoomNumber { get; set; }
 
-        [Required(ErrorMessage = "Building ID is required")]
-        [StringLength(10, ErrorMessage = "Building ID cannot exceed 10 chars")]
+        [Required(ErrorMessage = "Mã tòa nhà là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã tòa nhà không được quá 10 ký tự")]
         public string BuildingID { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Capacity is required")]
-        [Range(1, 50, ErrorMessage = "Capacity must be between 1 and 50")]
+        [Required(ErrorMessage = "Sức chứa là bắt buộc")]
+        [Range(1, 50, ErrorMessage = "Sức chứa phải từ 1 đến 50 người")]
         public int Capacity { get; set; }
 
-        [Required(ErrorMessage = "Price is required")]
-        [Range(0, 1000000000, ErrorMessage = "Price must be a positive number")]
+        [Required(ErrorMessage = "Giá phòng là bắt buộc")]
+        [Range(0, 1000000000, ErrorMessage = "Giá phòng phải là số dương")]
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "Status is required")]
-        [RegularExpression("^(Active|Maintenance|Inactive)$", ErrorMessage = "Status must be 'Active' or 'Maintenance' or 'Inactive'")]
+        [Required(ErrorMessage = "Trạng thái là bắt buộc")]
+        [RegularExpression("^(Active|Maintenance|Inactive)$", ErrorMessage = "Trạng thái phải là 'Active', 'Maintenance' hoặc 'Inactive'")]
         public string Status { get; set; } = string.Empty;
 
         public bool AllowCooking { get; set; }
-
         public bool AirConditioner { get; set; }
     }
 }

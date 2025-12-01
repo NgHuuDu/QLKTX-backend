@@ -4,8 +4,8 @@ namespace DormitoryManagementSystem.DTO.Payments
 {
     public class PaymentDeleteDTO
     {
-        [Required(ErrorMessage = "Payment id is required")]
-        [StringLength(10, ErrorMessage = "Payment id can not exceed 10 chars")]
+        [Required(ErrorMessage = "Mã thanh toán là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã thanh toán không được quá 10 ký tự")]
         public string PaymentID { get; set; } = string.Empty;
     }
 }

@@ -4,21 +4,21 @@ namespace DormitoryManagementSystem.DTO.Users
 {
     public class UserCreateDTO
     {
-        [Required(ErrorMessage = "User ID is required")]
-        [StringLength(10, ErrorMessage = "User ID cannot exceed 10 chars")]
-        [RegularExpression(@"^[a-zA-Z0-9_]*$", ErrorMessage = "User ID can only contain letters, numbers, and underscore")]
+        [Required(ErrorMessage = "Mã tài khoản là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã tài khoản không được quá 10 ký tự")]
+        [RegularExpression(@"^[a-zA-Z0-9_]*$", ErrorMessage = "Mã tài khoản chỉ được chứa chữ, số và dấu gạch dưới")]
         public string UserID { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Username is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 chars")]
+        [Required(ErrorMessage = "Tên đăng nhập là bắt buộc")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Tên đăng nhập phải từ 3 đến 50 ký tự")]
         public string UserName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Password is required")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters long")]
+        [Required(ErrorMessage = "Mật khẩu là bắt buộc")]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Mật khẩu phải có ít nhất 6 ký tự")]
         public string Password { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Role is required")]
-        [RegularExpression("^(Admin|Student)$", ErrorMessage = "Role must be 'Admin' or 'Student'")]
+        [Required(ErrorMessage = "Vai trò là bắt buộc")]
+        [RegularExpression("^(Admin|Student)$", ErrorMessage = "Vai trò phải là 'Admin' hoặc 'Student'")]
         public string Role { get; set; } = string.Empty;
     }
 }

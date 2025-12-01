@@ -35,7 +35,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<RoomReadDTO?> GetRoomByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Room ID cannot be empty");
+                throw new ArgumentException("Room ID không thể để trống");
 
             Room? room = await _roomDAO.GetRoomByIDAsync(id);
             if (room == null) return null;
@@ -46,11 +46,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<RoomReadDTO>> GetRoomsByBuildingIDAsync(string buildingId)
         {
             if (string.IsNullOrWhiteSpace(buildingId))
-                throw new ArgumentException("Building ID cannot be empty");
+                throw new ArgumentException("Building ID không thể để trống");
 
             Building? building = await _buildingDAO.GetByIDAsync(buildingId);
             if (building == null)
-                throw new KeyNotFoundException($"Building with ID {buildingId} does not exist.");
+                throw new KeyNotFoundException($"Không có building với ID {buildingId}.");
 
             IEnumerable<Room> rooms = await _roomDAO.GetRoomsByBuildingIDAsync(buildingId);
             return _mapper.Map<IEnumerable<RoomReadDTO>>(rooms);
@@ -60,11 +60,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Room? existingRoom = await _roomDAO.GetRoomByIDAsync(dto.RoomID);
             if (existingRoom != null)
-                throw new InvalidOperationException($"Room with ID {dto.RoomID} already exists.");
+                throw new InvalidOperationException($"Room với ID {dto.RoomID} đã tồn tại.");
 
             Building? building = await _buildingDAO.GetByIDAsync(dto.BuildingID);
             if (building == null)
-                throw new KeyNotFoundException($"Building with ID {dto.BuildingID} does not exist.");
+                throw new KeyNotFoundException($"Không có building với ID {dto.BuildingID}.");
 
             Room roomEntity = _mapper.Map<Room>(dto);
 
@@ -80,19 +80,19 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Room? roomEntity = await _roomDAO.GetRoomByIDAsync(id);
             if (roomEntity == null)
-                throw new KeyNotFoundException($"Room with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có room với ID {id}.");
 
             if (dto.BuildingID != roomEntity.Buildingid)
             {
                 Building? building = await _buildingDAO.GetByIDAsync(dto.BuildingID);
                 if (building == null)
-                    throw new KeyNotFoundException($"Building with ID {dto.BuildingID} does not exist.");
+                    throw new KeyNotFoundException($"Không có building với ID {dto.BuildingID}.");
             }
 
             if (dto.Capacity < roomEntity.Currentoccupancy)
             {
-                throw new InvalidOperationException($"Cannot reduce capacity to {dto.Capacity} " +
-                                                    $"because there are currently {roomEntity.Currentoccupancy} students in this room.");
+                throw new InvalidOperationException($"Không thể giảm sức chứa xuống {dto.Capacity} " +
+                                                    $"vì hiện tại có {roomEntity.Currentoccupancy} sinh viên trong phòng này.");
             }
 
             //if (dto.Status == "Maintenance" && roomEntity.Currentoccupancy > 0)
@@ -112,15 +112,15 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteRoomAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Room ID cannot be empty");
+                throw new ArgumentException("Room ID không thể để trống");
 
             var roomEntity = await _roomDAO.GetRoomByIDAsync(id);
             if (roomEntity == null)
-                throw new KeyNotFoundException($"Room with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có room với ID {id}.");
 
             if (roomEntity.Currentoccupancy > 0)
             {
-                throw new InvalidOperationException($"Cannot delete room {id} because there are {roomEntity.Currentoccupancy} students living in it.");
+                throw new InvalidOperationException($"Không thể xóa room {id} vì có {roomEntity.Currentoccupancy} sinh viên đang ở trong phòng.");
             }
 
             await _roomDAO.DeleteRoomAsync(id);
@@ -192,7 +192,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<RoomDetailDTO?> GetRoomDetailByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Room ID cannot be empty");
+                throw new ArgumentException("Room ID không thể để trống");
 
             var room = await _roomDAO.GetRoomDetailByIDAsync(id);
 

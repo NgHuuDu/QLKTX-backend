@@ -31,7 +31,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<PaymentReadDTO?> GetPaymentByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Payment ID cannot be empty");
+                throw new ArgumentException("Payment ID không thể để trống");
 
             Payment? payment = await _paymentDAO.GetPaymentByIDAsync(id);
             if (payment == null) return null;
@@ -42,11 +42,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<PaymentReadDTO>> GetPaymentsByContractIDAsync(string contractId)
         {
             if (string.IsNullOrWhiteSpace(contractId))
-                throw new ArgumentException("Contract ID cannot be empty");
+                throw new ArgumentException("Contract ID không thể để trống");
 
             Contract? contract = await _contractDAO.GetContractByIDAsync(contractId);
             if (contract == null)
-                throw new KeyNotFoundException($"Contract with ID {contractId} not found.");
+                throw new KeyNotFoundException($"Không có hợp đồng với ID {contractId}.");
 
             IEnumerable<Payment> payments = await _paymentDAO.GetPaymentsByContractIDAsync(contractId);
             return _mapper.Map<IEnumerable<PaymentReadDTO>>(payments);
@@ -55,7 +55,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<PaymentReadDTO>> GetPaymentsByStatusAsync(string status)
         {
             if (string.IsNullOrWhiteSpace(status))
-                throw new ArgumentException("Status cannot be empty");
+                throw new ArgumentException("Status không thể để trống");
 
             IEnumerable<Payment> payments = await _paymentDAO.GetPaymentsByStatusAsync(status);
             return _mapper.Map<IEnumerable<PaymentReadDTO>>(payments);
@@ -65,14 +65,14 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Payment? existingPayment = await _paymentDAO.GetPaymentByIDAsync(dto.PaymentID);
             if (existingPayment != null)
-                throw new InvalidOperationException($"Payment with ID {dto.PaymentID} already exists.");
+                throw new InvalidOperationException($"Payment với ID {dto.PaymentID} đã tồn tại.");
 
             Contract? contract = await _contractDAO.GetContractByIDAsync(dto.ContractID);
             if (contract == null)
-                throw new KeyNotFoundException($"Contract with ID {dto.ContractID} not found.");
+                throw new KeyNotFoundException($"Không có hợp đồng với ID {dto.ContractID}.");
 
             if (dto.PaidAmount > dto.PaymentAmount)
-                throw new InvalidOperationException("Paid amount cannot exceed the required payment amount.");
+                throw new InvalidOperationException("Số tiền đã thanh toán không thể vượt quá số tiền yêu cầu.");
 
             // Auto-update Status based on Paid Amount if logic dictates
             // If user sends "Unpaid" but PaidAmount == PaymentAmount, we might want to correct it.
@@ -96,10 +96,10 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Payment? paymentEntity = await _paymentDAO.GetPaymentByIDAsync(id);
             if (paymentEntity == null)
-                throw new KeyNotFoundException($"Payment with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có payment với ID {id}.");
 
             if (dto.PaidAmount > paymentEntity.Paymentamount)
-                throw new InvalidOperationException($"Paid amount ({dto.PaidAmount}) cannot exceed the original bill amount ({paymentEntity.Paymentamount}).");
+                throw new InvalidOperationException($"Số tiền đã thanh toán ({dto.PaidAmount}) không thể vượt quá số tiền gốc ({paymentEntity.Paymentamount}).");
 
             _mapper.Map(dto, paymentEntity);
 
@@ -123,11 +123,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeletePaymentAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Payment ID cannot be empty");
+                throw new ArgumentException("Payment ID không thể để trống");
 
             Payment? payment = await _paymentDAO.GetPaymentByIDAsync(id);
             if (payment == null)
-                throw new KeyNotFoundException($"Payment with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có payment với ID {id}.");
 
             await _paymentDAO.RemovePaymentAsync(id);
         }

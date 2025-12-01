@@ -9,13 +9,13 @@ namespace DormitoryManagementSystem.DTO.Contracts
 {
     public class ContractRegisterDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Mã phòng là bắt buộc")]
         public string RoomID { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Ngày bắt đầu là bắt buộc")]
         public DateTime StartTime { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ngày kết thúc là bắt buộc")]
         public DateTime EndTime { get; set; }
     }
 }
