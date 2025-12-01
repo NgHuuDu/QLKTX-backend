@@ -37,7 +37,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<ViolationReadDTO?> GetViolationByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Violation ID cannot be empty");
+                throw new ArgumentException("Violation ID không thể để trống");
 
             Violation? violation = await _violationDAO.GetViolationByIdAsync(id);
             if (violation == null) return null;
@@ -56,11 +56,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<ViolationReadDTO>> GetViolationsByRoomIDAsync(string roomId)
         {
             if (string.IsNullOrWhiteSpace(roomId))
-                throw new ArgumentException("Room ID cannot be empty");
+                throw new ArgumentException("Room ID không thể để trống");
 
             Room? room = await _roomDAO.GetRoomByIDAsync(roomId);
             if (room == null)
-                throw new KeyNotFoundException($"Room with ID {roomId} not found.");
+                throw new KeyNotFoundException($"Room với ID {roomId} không tìm thấy.");
 
             IEnumerable<Violation> violations = await _violationDAO.GetViolationsByRoomIDAsync(roomId);
             return _mapper.Map<IEnumerable<ViolationReadDTO>>(violations);
@@ -69,7 +69,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<IEnumerable<ViolationReadDTO>> GetViolationsByStatusAsync(string status)
         {
             if (string.IsNullOrWhiteSpace(status))
-                throw new ArgumentException("Status cannot be empty");
+                throw new ArgumentException("Trạng thái không được trống");
 
             IEnumerable<Violation> violations = await _violationDAO.GetViolationsByStatusAsync(status);
             return _mapper.Map<IEnumerable<ViolationReadDTO>>(violations);
@@ -79,27 +79,27 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Violation? existing = await _violationDAO.GetViolationByIdAsync(dto.ViolationID);
             if (existing != null)
-                throw new InvalidOperationException($"Violation with ID {dto.ViolationID} already exists.");
+                throw new InvalidOperationException($"Violation với ID {dto.ViolationID} đã tồn tại.");
 
             Room? room = await _roomDAO.GetRoomByIDAsync(dto.RoomID);
             if (room == null)
-                throw new KeyNotFoundException($"Room with ID {dto.RoomID} not found.");
+                throw new KeyNotFoundException($"Room với ID {dto.RoomID} không tìm thấy.");
 
             if (!string.IsNullOrEmpty(dto.StudentID))
             {
                 Student? student = await _studentDAO.GetStudentByIDAsync(dto.StudentID);
                 if (student == null)
-                    throw new KeyNotFoundException($"Student with ID {dto.StudentID} not found.");
+                    throw new KeyNotFoundException($"Student với ID {dto.StudentID} không tìm thấy.");
             }
 
             if (!string.IsNullOrEmpty(dto.ReportedByUserID))
             {
                 User? user = await _userDAO.GetUserByIDAsync(dto.ReportedByUserID);
                 if (user == null)
-                    throw new KeyNotFoundException($"User (Reporter) with ID {dto.ReportedByUserID} not found.");
+                    throw new KeyNotFoundException($"User (Reporter) với ID {dto.ReportedByUserID} không tìm thấy.");
 
                 if (!user.IsActive)
-                    throw new InvalidOperationException($"Reporter account {dto.ReportedByUserID} is inactive.");
+                    throw new InvalidOperationException($"Tài khoản Reporter {dto.ReportedByUserID} không hoạt động.");
             }
 
             Violation violationEntity = _mapper.Map<Violation>(dto);
@@ -116,13 +116,13 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Violation? violationEntity = await _violationDAO.GetViolationByIdAsync(id);
             if (violationEntity == null)
-                throw new KeyNotFoundException($"Violation with ID {id} not found.");
+                throw new KeyNotFoundException($"Violation với ID {id} không tìm thấy.");
 
             if (!string.IsNullOrEmpty(dto.StudentID) && dto.StudentID != violationEntity.Studentid)
             {
                 Student? student = await _studentDAO.GetStudentByIDAsync(dto.StudentID);
                 if (student == null)
-                    throw new KeyNotFoundException($"Student with ID {dto.StudentID} not found.");
+                    throw new KeyNotFoundException($"Student với ID {dto.StudentID} không tìm thấy.");
             }
 
             // If Status is Paid, verify Penalty logic (Optional)
@@ -141,11 +141,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteViolationAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Violation ID cannot be empty");
+                throw new ArgumentException("Violation ID không được để trống");
 
             Violation? violation = await _violationDAO.GetViolationByIdAsync(id);
             if (violation == null)
-                throw new KeyNotFoundException($"Violation with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có vi phạm với ID {id}.");
 
             // Perform Hard Delete (As decided for Violations table)
             await _violationDAO.DeleteViolationAsync(id);

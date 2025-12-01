@@ -34,7 +34,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<AdminReadDTO?> GetAdminByIDAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
-                throw new ArgumentException("Admin id can not be empty.");
+                throw new ArgumentException("Admin id không thể để trống.");
 
             Admin? ad = await this._adminDAO.GetAdminByIDAsync(id);
             if (ad == null) return null;
@@ -45,7 +45,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<AdminReadDTO?> GetAdminByUserIDAsync(string userId)
         {
             if (string.IsNullOrEmpty(userId))
-                throw new ArgumentException("user id can not be empty.");
+                throw new ArgumentException("user id không thể để trống.");
 
             Admin? ad = await this._adminDAO.GetAdminByUserIDAsync(userId);
             if (ad == null) return null;
@@ -57,22 +57,22 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Admin? existing = await this._adminDAO.GetAdminByIDAsync(dto.AdminID);
             if (existing != null)
-                throw new InvalidOperationException($"Admin with ID {dto.AdminID} already exists.");
+                throw new InvalidOperationException($"Không có quản trị viên với ID {dto.AdminID}.");
 
             Admin? existingCCCD = await this._adminDAO.GetAdminByCCCDAsync(dto.IDcard);
             if (existingCCCD != null)
-                throw new InvalidOperationException($"Admin with CCCD {dto.IDcard} already exists.");
+                throw new InvalidOperationException($"Không có quản trị viên với CCCD {dto.IDcard}.");
 
             User? user = await this._userDAO.GetUserByIDAsync(dto.UserID);
-            if (user == null) 
-                throw new KeyNotFoundException($"User with ID {dto.UserID} does not exist. Please create the User account first.");
+            if (user == null)
+                throw new KeyNotFoundException($"Không có người dùng với ID {dto.UserID}. Vui lòng tạo tài khoản người dùng trước.");
 
             if (user.Role != "Admin")
-                throw new InvalidOperationException($"User {dto.UserID} has role '{user.Role}'. Cannot assign Admin profile.");
+                throw new InvalidOperationException($"Người dùng {dto.UserID} có vai trò '{user.Role}'. Không thể gán hồ sơ quản trị viên.");
 
             Admin? existingProfile = await this._adminDAO.GetAdminByUserIDAsync(dto.UserID);
             if (existingProfile != null)
-                throw new InvalidOperationException($"User {dto.UserID} is already linked to Admin Profile {existingProfile.Adminid}.");
+                throw new InvalidOperationException($"Người dùng {dto.UserID} đã được liên kết với hồ sơ quản trị viên {existingProfile.Adminid}.");
 
             Admin ad = this._mapper.Map<Admin>(dto);
             await this._adminDAO.AddAdminAsync(ad);
@@ -84,13 +84,13 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Admin? currentAdmin = await _adminDAO.GetAdminByIDAsync(id);
             if (currentAdmin == null)
-                throw new KeyNotFoundException($"Admin with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có quản trị viên với ID {id}.");
 
             if (currentAdmin.Idcard != dto.IDcard)
             {
                 Admin? existingCCCD = await this._adminDAO.GetAdminByCCCDAsync(dto.IDcard);
                 if (existingCCCD != null)
-                    throw new InvalidOperationException($"Admin with CCCD {dto.IDcard} already exists.");
+                    throw new InvalidOperationException($"Không có quản trị viên với CCCD {dto.IDcard}.");
             }
 
             _mapper.Map(dto, currentAdmin);
@@ -102,11 +102,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteAdminAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
-                throw new ArgumentException("Admin ID cannot be empty.");
+                throw new ArgumentException("Admin ID không thể để trống.");
 
             Admin? existing = await _adminDAO.GetAdminByIDAsync(id);
             if (existing == null)
-                throw new KeyNotFoundException($"Admin with ID {id} not found.");
+                throw new KeyNotFoundException($"Không có quản trị viên với ID {id}.");
 
             // SOFT DELETE USER
             // Gọi UserDAO để set IsActive = false cho UserID tương ứng

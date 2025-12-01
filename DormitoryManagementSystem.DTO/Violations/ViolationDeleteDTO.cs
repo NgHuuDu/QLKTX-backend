@@ -4,8 +4,8 @@ namespace DormitoryManagementSystem.DTO.Violations
 {
     public class ViolationDeleteDTO
     {
-        [Required(ErrorMessage = "Violation ID is required")]
-        [StringLength(10, ErrorMessage = "Violation ID cannot exceed 10 chars")]
+        [Required(ErrorMessage = "Mã vi phạm là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã vi phạm không được quá 10 ký tự")]
         public string ViolationID { get; set; } = string.Empty;
     }
 }

@@ -93,6 +93,34 @@ namespace DormitoryManagementSystem.API.Controllers
                 await _studentBUS.DeleteStudentAsync(id);
                 return Ok(new { message = "Xóa hồ sơ sinh viên thành công!" });
             }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+        
+        [HttpPut("contact-info")]
+        [Authorize(Roles = "Student")] 
+        public async Task<IActionResult> UpdateContactInfo([FromBody] StudentContactUpdateDTO dto)
+        {
+            try
+            {
+                var studentId = User.FindFirst("StudentID")?.Value;
+
+
+                if (string.IsNullOrEmpty(studentId))
+                {
+                    return Unauthorized(new { message = "Không xác định được sinh viên (Token lỗi)." });
+                }
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                await _studentBUS.UpdateContactInfoAsync(studentId, dto);
+
+                return Ok(new { message = "Cập nhật thông tin liên lạc thành công!" });
+
+            }
             catch (KeyNotFoundException ex)
             {
                 return NotFound(new { message = ex.Message });

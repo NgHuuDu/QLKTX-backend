@@ -34,7 +34,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<BuildingReadDTO?> GetByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Building ID cannot be empty");
+                throw new ArgumentException("Building ID không thể để trống");
 
             Building? building = await this._dao.GetByIDAsync(id);
             if (building == null) return null;
@@ -46,7 +46,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Building? existing = await this._dao.GetByIDAsync(dto.BuildingID);
             if (existing != null)
-                throw new InvalidOperationException($"Building with ID {dto.BuildingID} already exists.");
+                throw new InvalidOperationException($"Không có tòa nhà với ID {dto.BuildingID}.");
 
             Building building = this._mapper.Map<Building>(dto);
             await this._dao.AddBuildingAsync(building);
@@ -58,19 +58,19 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Building? building = await this._dao.GetByIDAsync(id);
             if (building == null)
-                throw new KeyNotFoundException($"No building with ID {id} exists.");
+                throw new KeyNotFoundException($"Không có tòa nhà với ID {id}.");
 
             if (building.Currentoccupancy > 0 && building.Gendertype != dto.Gender)
             {
-                throw new InvalidOperationException($"Cannot change gender to '{dto.Gender}' " +
-                                                    $"because there are {building.Currentoccupancy} students living here.");
+                throw new InvalidOperationException($"Không thể thay đổi giới tính thành '{dto.Gender}' " +
+                                                    $"bởi vì có {building.Currentoccupancy} sinh viên đang sống ở đây.");
             }
 
             IEnumerable<Room> actualRooms = await this._daoRoom.GetRoomsByBuildingIDAsync(id);
             if (dto.NumberOfRooms < actualRooms.Count())
             {
-                throw new InvalidOperationException($"Cannot set number of rooms to {dto.NumberOfRooms} " +
-                                                    $"because there are actually {actualRooms.Count()} rooms in the system.");
+                throw new InvalidOperationException($"Không thể đặt số phòng thành {dto.NumberOfRooms} " +
+                                                    $"bởi vì hiện tại có {actualRooms.Count()} phòng trong hệ thống.");
             }
 
             // Map dữ liệu từ dto -> đè lên building hiện tại
@@ -84,10 +84,10 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             Building? building = await _dao.GetByIDAsync(id);
             if (building == null)
-                throw new KeyNotFoundException($"Building {id} not found.");
+                throw new KeyNotFoundException($"Không có tòa nhà với ID {id}.");
 
             if (building.Currentoccupancy > 0)
-                throw new InvalidOperationException($"Cannot delete building {id} because there are students living in it.");
+                throw new InvalidOperationException($"Không thể xóa tòa nhà {id} vì có sinh viên đang sống ở đó.");
 
             // CASCADE SOFT DELETE: Set toàn bộ phòng thành 'Inactive'
             IEnumerable<Room> rooms = await _daoRoom.GetRoomsByBuildingIDAsync(id);

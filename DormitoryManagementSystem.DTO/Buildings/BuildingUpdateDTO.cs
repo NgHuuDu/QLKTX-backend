@@ -4,16 +4,16 @@ namespace DormitoryManagementSystem.DTO.Buildings
 {
     public class BuildingUpdateDTO
     {
-        [Required(ErrorMessage = "Building Name is required")]
-        [StringLength(50, ErrorMessage = "Building name can not exceed 50 chars")]
+        [Required(ErrorMessage = "Tên tòa nhà là bắt buộc")]
+        [StringLength(50, ErrorMessage = "Tên tòa nhà không được quá 50 ký tự")]
         public string BuildingName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Number of rooms is required")]
-        [Range(1, 1000, ErrorMessage = "Number of rooms must be positive")]
+        [Required(ErrorMessage = "Số lượng phòng là bắt buộc")]
+        [Range(1, 1000, ErrorMessage = "Số lượng phòng phải là số dương")]
         public int NumberOfRooms { get; set; }
 
-        [Required(ErrorMessage = "Gender is required")]
-        [RegularExpression("^(Male|Female|Mixed)$", ErrorMessage = "Gender must be 'Male', 'Female', or 'Mixed'")]
+        [Required(ErrorMessage = "Loại giới tính là bắt buộc")]
+        [RegularExpression("^(Male|Female|Mixed)$", ErrorMessage = "Loại giới tính phải là 'Male', 'Female' hoặc 'Mixed'")]
         public string Gender { get; set; } = string.Empty;
         public bool IsActive { get; set; }
     }

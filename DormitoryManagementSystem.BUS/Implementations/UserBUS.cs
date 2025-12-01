@@ -39,7 +39,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<UserReadDTO?> GetUserByIDAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("User ID cannot be empty");
+                throw new ArgumentException("User ID không thể để trống");
 
             var user = await _userDAO.GetUserByIDAsync(id);
             if (user == null) return null;
@@ -50,7 +50,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task<User?> GetUserByUsernameAsync(string username)
         {
             if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("Username cannot be empty");
+                throw new ArgumentException("Username không thể để trống");
 
             var user = await _userDAO.GetUserByUsernameAsync(username);
             if (user == null) return null;
@@ -64,7 +64,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
             if (user == null) return null;
 
             if (user.IsActive == false) 
-                throw new UnauthorizedAccessException("Account is disabled/deleted.");
+                throw new UnauthorizedAccessException("Tài khoản bị vô hiệu hóa/xóa.");
 
             // Nếu login tab Sinh viên mà user là Admin -> Chặn
             if (user.Role != dto.Role) return null;
@@ -174,11 +174,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             User? existingId = await _userDAO.GetUserByIDAsync(dto.UserID);
             if (existingId != null)
-                throw new InvalidOperationException($"User ID {dto.UserID} already exists.");
+                throw new InvalidOperationException($"User ID {dto.UserID} đã tồn tại.");
 
             User? existingUsername = await _userDAO.GetUserByUsernameAsync(dto.UserName);
             if (existingUsername != null)
-                throw new InvalidOperationException($"Username '{dto.UserName}' is already taken.");
+                throw new InvalidOperationException($"Username '{dto.UserName}' đã được sử dụng.");
 
             User userEntity = _mapper.Map<User>(dto);
 
@@ -194,12 +194,12 @@ namespace DormitoryManagementSystem.BUS.Implementations
         {
             User? userEntity = await _userDAO.GetUserByIDAsync(id);
             if (userEntity == null)
-                throw new KeyNotFoundException($"User with ID {id} not found.");
+                throw new KeyNotFoundException($"User với ID {id} không tìm thấy.");
 
             if (!string.IsNullOrEmpty(dto.Role))
             {
                 if (dto.Role != "Admin" && dto.Role != "Student")
-                    throw new InvalidOperationException("Role must be either 'Admin' or 'Student'.");
+                    throw new InvalidOperationException("Role phải là 'Admin' hoặc 'Student'.");
             }
 
             _mapper.Map(dto, userEntity);
@@ -215,11 +215,11 @@ namespace DormitoryManagementSystem.BUS.Implementations
         public async Task DeleteUserAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("User ID cannot be empty");
+                throw new ArgumentException("User ID không được để trống");
 
             var user = await _userDAO.GetUserByIDAsync(id);
             if (user == null)
-                throw new KeyNotFoundException($"User with ID {id} not found.");
+                throw new KeyNotFoundException($"User với ID {id} không tìm thấy.");
 
             await _userDAO.DeleteUserAsync(id);
         }

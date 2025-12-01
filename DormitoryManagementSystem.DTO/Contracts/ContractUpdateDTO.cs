@@ -4,18 +4,18 @@ namespace DormitoryManagementSystem.DTO.Contracts
 {
     public class ContractUpdateDTO
     {
-        [Required(ErrorMessage = "Room ID is required")]
-        [StringLength(10, ErrorMessage = "Room ID cannot exceed 10 chars")]
+        [Required(ErrorMessage = "Mã phòng là bắt buộc")]
+        [StringLength(10, ErrorMessage = "Mã phòng không được quá 10 ký tự")]
         public string RoomID { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Start Time is required")]
+        [Required(ErrorMessage = "Ngày bắt đầu là bắt buộc")]
         public DateOnly StartTime { get; set; }
 
-        [Required(ErrorMessage = "End Time is required")]
+        [Required(ErrorMessage = "Ngày kết thúc là bắt buộc")]
         public DateOnly EndTime { get; set; }
 
-        [Required(ErrorMessage = "Status is required")]
-        [RegularExpression("^(Active|Expired|Terminated)$", ErrorMessage = "Status must be 'Active', 'Expired', or 'Terminated'")]
+        [Required(ErrorMessage = "Trạng thái là bắt buộc")]
+        [RegularExpression("^(Active|Expired|Terminated)$", ErrorMessage = "Trạng thái phải là 'Active', 'Expired' hoặc 'Terminated'")]
         public string Status { get; set; } = string.Empty;
     }
 }

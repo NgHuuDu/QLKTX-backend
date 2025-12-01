@@ -16,9 +16,10 @@ namespace DormitoryManagementSystem.BUS.Interfaces
 
 
 
-
         // Mới thêm để lấy hồ sơ sinh viên
         Task<StudentProfileDTO?> GetStudentProfileAsync(string studentId);
+        Task UpdateContactInfoAsync(string studentId, StudentContactUpdateDTO dto);
+
 
     }
 }
