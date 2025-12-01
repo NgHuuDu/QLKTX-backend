@@ -142,6 +142,8 @@ app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); // Them Đọc JWT
+
 app.UseAuthorization();
 
 app.MapControllers();
