@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/student")]
     [ApiController]
     public class StudentController : ControllerBase
     {
@@ -19,14 +19,13 @@ namespace DormitoryManagementSystem.API.Controllers
 
         //Student 
         // API : lấy thông tin sinh viên
-        [HttpGet("student/profile")]
-        //[Authorize(Roles = "Student")]// tắt này để test
+        [HttpGet("profile")]
+        [Authorize(Roles = "Student")]// tắt này để test
         public async Task<IActionResult> GetMyProfile()
         {
             try
             {
-                //var studentId = User.FindFirst("StudentID")?.Value;
-                var studentId = "STU004"; // Dùng để test tạm thời, nhớ xóa khi có Token
+                var studentId = User.FindFirst("StudentID")?.Value;
                 if (string.IsNullOrEmpty(studentId))
                 {
                     return Unauthorized(new { message = "Token không hợp lệ: Không tìm thấy StudentID." });

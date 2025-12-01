@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin/statistics")]
     [ApiController]
     public class StatisticsController : ControllerBase
     {
@@ -19,9 +19,8 @@ namespace DormitoryManagementSystem.API.Controllers
         
         
         //admin
-        // GET: api/statistics/dashboard
-        [HttpGet("admin/stats/dashboard")]
-        //[Authorize(Roles = "Admin,Manager")] 
+        [HttpGet("dashboard")]
+        [Authorize(Roles = "Admin")] 
         public async Task<IActionResult> GetDashboardStats()
         {
             try
@@ -37,8 +36,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         //Admin
         // API: Lấy doanh thu theo tháng (Vẽ biểu đồ cột/đường)
-        [HttpGet("admin/stats/revenue")]
-        //[Authorize(Roles = "Admin,Manager")]
+        [HttpGet("revenue")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetRevenueStats([FromQuery] int year)
         {
             try
@@ -59,8 +58,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // API: Lấy xu hướng lấp đầy (Vẽ biểu đồ đường Line Chart)
         // GET: api/statistics/occupancy-trend?year=2024
-        [HttpGet("admin/stats/occupancy-trend")]
-       // [Authorize(Roles = "Admin,Manager")]
+        [HttpGet("occupancy-trend")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetOccupancyTrend([FromQuery] int year)
         {
             try
@@ -79,8 +78,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // API: Thống kê tỷ lệ nam nữ
         // GET: api/statistics/gender
-        [HttpGet("admin/stats/gender")]
-        //[Authorize(Roles = "Admin,Manager")]
+        [HttpGet("gender")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetGenderStats()
         {
             try
@@ -97,8 +96,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // API: So sánh các tòa nhà (SV & Doanh thu)
         // GET: api/statistics/building-comparison?year=2024
-        [HttpGet("admin/stats/building-comparison")]
-       // [Authorize(Roles = "Admin,Manager")]
+        [HttpGet("building-comparison")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetBuildingComparison([FromQuery] int? year)
         {
             try
@@ -115,8 +114,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // API: Lấy xu hướng vi phạm (Vẽ biểu đồ đường/cột)
         // GET: api/statistics/violation-trend?year=2024
-        [HttpGet("admin/stats/violation-trend")]
-       // [Authorize(Roles = "Admin,Manager")]
+        [HttpGet("violation-trend")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetViolationTrend([FromQuery] int year)
         {
             try
@@ -135,8 +134,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // API: Thống kê vi phạm (Chưa xử lý vs Đã xử lý)
         // GET: api/statistics/violation-summary
-        [HttpGet("admin/violation/violation-summary")]
-       // [Authorize(Roles = "Admin,Manager")]
+        [HttpGet("violation-summary")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetViolationSummaryStats()
         {
             try
@@ -153,8 +152,8 @@ namespace DormitoryManagementSystem.API.Controllers
 
         //  Lấy thống kê thanh toán (Cho Payment Admin)
         // GET: api/payment/stats
-        [HttpGet("admin/payemt/stats")]
-        // [Authorize(Roles = "Admin,Manager")] 
+        [HttpGet("payment-summary")]
+        [Authorize(Roles = "Admin")] 
         public async Task<IActionResult> GetPaymentStats()
         {
             try

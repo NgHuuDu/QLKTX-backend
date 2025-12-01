@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -18,15 +18,14 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         // PUT: api/user/change-password
-        [HttpPut("student/change-password")]
-        //[Authorize(Roles = "Student")] // tắt cái này để test
+        [HttpPut("user/change-password")]
+        [Authorize(Roles = "Student")] // tắt cái này để test
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDTO dto)
         {
             try
             {
                 
                  var userId = User.FindFirst("UserID")?.Value;
-                //var userId = "U_STU01"; Dùng cái này để test
 
                 if (string.IsNullOrEmpty(userId))
                     return Unauthorized(new { message = "Token không hợp lệ hoặc đã hết hạn." });

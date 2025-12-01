@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DormitoryManagementSystem.BUS.Interfaces;
+using DormitoryManagementSystem.DAO.Implementations;
 using DormitoryManagementSystem.DAO.Interfaces;
 using DormitoryManagementSystem.DTO.Payments;
 using DormitoryManagementSystem.Entity;
@@ -11,12 +12,14 @@ namespace DormitoryManagementSystem.BUS.Implementations
         private readonly IPaymentDAO _paymentDAO;
         private readonly IContractDAO _contractDAO;
         private readonly IMapper _mapper;
+        private readonly IRoomDAO _roomDAO;
 
-        public PaymentBUS(IPaymentDAO paymentDAO, IContractDAO contractDAO, IMapper mapper)
+        public PaymentBUS(IPaymentDAO paymentDAO, IContractDAO contractDAO, IMapper mapper, IRoomDAO roomDAO)
         {
             _paymentDAO = paymentDAO;
             _contractDAO = contractDAO;
             _mapper = mapper;
+            _roomDAO = roomDAO;
         }
 
         public async Task<IEnumerable<PaymentReadDTO>> GetAllPaymentsAsync()
@@ -136,10 +139,10 @@ namespace DormitoryManagementSystem.BUS.Implementations
         // Lấy các hóa đơn  của SV dựa trên trạng thái 
         public async Task<IEnumerable<PaymentListDTO>> GetPaymentsByStudentAndStatusAsync(string studentId, string? status)
         {
-          
+
             var payments = await _paymentDAO.GetPaymentsByStudentAndStatusAsync(studentId, status);
 
-           
+
             var result = payments.Select(p => new PaymentListDTO
             {
                 PaymentID = p.Paymentid,
@@ -161,7 +164,7 @@ namespace DormitoryManagementSystem.BUS.Implementations
         // Lấy các hóa đơn với bộ lọc cho Admin
         public async Task<IEnumerable<PaymentAdminDTO>> GetPaymentsForAdminAsync(
         int? month, string? status, string? building, string? search)
-            {
+        {
             var payments = await _paymentDAO.GetPaymentsForAdminAsync(month, status, building, search);
 
             return payments.Select(p => new PaymentAdminDTO
@@ -219,7 +222,43 @@ namespace DormitoryManagementSystem.BUS.Implementations
             await _paymentDAO.UpdatePaymentAsync(payment);
         }
 
-        // Thống kê thanh toán
-     
+        public async Task<int> GenerateMonthlyBillsAsync(int month, int year)
+        {
+            var activeContracts = await _contractDAO.GetAllContractsAsync();
+            activeContracts = activeContracts.Where(c => c.Status == "Active").ToList();
+
+            int count = 0;
+
+            foreach (var contract in activeContracts)
+            {
+                var exist = await _paymentDAO.GetPaymentsByContractIDAsync(contract.Contractid);
+                bool isExist = exist.Any(p => p.Billmonth == month && p.Paymentdate.Value.Year == year);
+
+                if (!isExist)
+                {
+                    var room = await _roomDAO.GetRoomByIDAsync(contract.Roomid);
+                    decimal roomPrice = room?.Price ?? 0;
+
+                    var newBill = new PaymentCreateDTO
+                    {
+                        PaymentID = $"PAY_{year}{month}_{contract.Contractid}",
+                        ContractID = contract.Contractid,
+                        BillMonth = month,
+                        PaymentAmount = roomPrice,
+                        PaymentStatus = "Unpaid",
+                        Description = $"Tiền phòng tháng {month}/{year}",
+                        PaymentDate = null
+                    };
+
+                    await AddPaymentAsync(newBill);
+                    count++;
+                }
+
+
+
+            }
+
+            return count;
+        }
     }
 }

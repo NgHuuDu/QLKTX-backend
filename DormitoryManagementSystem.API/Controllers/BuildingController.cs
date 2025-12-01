@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class BuildingController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
 
 
-        [HttpGet("LoadBuildingInComboBox")] 
+        [HttpGet("buildings/lookup/combobox")] 
         
         public async Task<IActionResult> GetBuildingLookup()
         {

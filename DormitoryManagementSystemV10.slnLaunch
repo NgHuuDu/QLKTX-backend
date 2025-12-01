@@ -5,10 +5,6 @@
       {
         "Path": "DormitoryManagementSystem.API\\DormitoryManagementSystem.API.csproj",
         "Action": "Start"
-      },
-      {
-        "Path": "DormitoryManagementSystem.GUI\\DormitoryManagementSystem.GUI.csproj",
-        "Action": "Start"
       }
     ]
   }

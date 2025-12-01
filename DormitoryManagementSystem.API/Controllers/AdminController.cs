@@ -1,5 +1,6 @@
 using DormitoryManagementSystem.BUS.Interfaces;
 using DormitoryManagementSystem.DTO.Admins;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IAdminBUS _adminBUS;
@@ -18,7 +20,8 @@ namespace DormitoryManagementSystem.API.Controllers
             _adminBUS = adminBUS;
         }
 
-        [HttpGet]
+        [HttpGet("admins")]
+
         public async Task<ActionResult<IEnumerable<AdminReadDTO>>> GetAllAdmins()
         {
             var admins = await _adminBUS.GetAllAdminsAsync();

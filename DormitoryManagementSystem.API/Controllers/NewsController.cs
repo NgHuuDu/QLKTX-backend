@@ -1,7 +1,7 @@
 ﻿using DormitoryManagementSystem.BUS.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-[Route("api/[controller]")]
+[Route("api/news")]
 [ApiController]
 public class NewsController : ControllerBase
 {
@@ -13,7 +13,7 @@ public class NewsController : ControllerBase
     }
 
     // Dùng để hiển thị danh sách tin tức (chỉ có tiêu đề, ảnh đại diện, ngày đăng) -> trong trang chủ á
-    [HttpGet("SummaryNews")]
+    [HttpGet("summary")]
     public async Task<IActionResult> GetNewsList()
     {
         try

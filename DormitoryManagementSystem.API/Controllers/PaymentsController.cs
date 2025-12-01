@@ -4,7 +4,7 @@ using DormitoryManagementSystem.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-[Route("api/[controller]")]
+[Route("api")]
 [ApiController]
 public class PaymentController : ControllerBase
 {
@@ -23,11 +23,11 @@ public class PaymentController : ControllerBase
 
 
     // API: Lấy danh sách thanh toán của sinh viên (Có thể lọc theo trạng thái)
-    [HttpGet("student/filter")]
+    [HttpGet("student/payments")]
+    [Authorize(Roles = "Student")]
     public async Task<IActionResult> GetMyPayments([FromQuery] string? status)
     {
-        //var studentId = User.FindFirst("StudentID")?.Value; // Lấy từ Token
-        var studentId = "STU001"; // Dùng này để test
+        var studentId = User.FindFirst("StudentID")?.Value; // Lấy từ Token
         var list = await _paymentBUS.GetPaymentsByStudentAndStatusAsync(studentId, status);
 
         return Ok(list);
@@ -42,9 +42,8 @@ public class PaymentController : ControllerBase
     // ---------------------------------------------------------
 
     // Lấy danh sách & Lọc
-    // GET: api/payment/admin/list?month=11&status=Unpaid&search=Nguyen
-    [HttpGet("admin/list & search")]
-   // [Authorize(Roles = "Admin,Manager")]
+    [HttpGet("admin/payments")]
+   [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAdminPaymentList(
         [FromQuery] int? month,
         [FromQuery] string? status,
@@ -54,10 +53,10 @@ public class PaymentController : ControllerBase
         var list = await _paymentBUS.GetPaymentsForAdminAsync(month, status, building, search);
         return Ok(list);
     }
-
+    /*
     //  Tạo hóa đơn mới
-    [HttpPost("admin/Create")]
-    //[Authorize(Roles = "Admin,Manager")]
+    [HttpPost("admin/payments")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateBill([FromBody] PaymentCreateDTO dto)
     {
         try
@@ -67,10 +66,10 @@ public class PaymentController : ControllerBase
         }
         catch (Exception ex) { return BadRequest(new { message = ex.Message }); }
     }
-
+    */
     // PUT: api/payment/{id}/confirm
-    [HttpPut("admin/{id}/confirm")]
-    //[Authorize(Roles = "Admin,Manager")]
+    [HttpPut("admin/payments/{id}/confirm")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> ConfirmPayment(string id, [FromBody] PaymentConfirmDTO dto)
     {
         try
@@ -97,15 +96,31 @@ public class PaymentController : ControllerBase
     }
 
     //Xóa hóa đơn (Nếu tạo sai)
-    [HttpDelete("admin/{id}")]
-   // [Authorize(Roles = "Admin,Manager")]
+    [HttpDelete("admin/payments/{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteBill(string id)
     {
         await _paymentBUS.DeletePaymentAsync(id);
         return Ok(new { message = "Đã xóa hóa đơn" });
     }
 
+    [HttpPost("admin/payments/auto-generate")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GenerateBills([FromQuery] int month, [FromQuery] int year)
+    {
+        try
+        {
+            if (year == 0) year = DateTime.Now.Year;
+
+            int count = await _paymentBUS.GenerateMonthlyBillsAsync(month, year);
+
+            return Ok(new { message = $"Đã tạo thành công {count} hóa đơn tiền phòng cho tháng {month}/{year}!" });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+        }
+    }
 
 
-    
 }

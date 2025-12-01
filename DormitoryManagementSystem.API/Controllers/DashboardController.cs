@@ -8,12 +8,15 @@ using DormitoryManagementSystem.DTO.Buildings;
 using DormitoryManagementSystem.DTO.Contracts;
 using DormitoryManagementSystem.DTO.Rooms;
 using DormitoryManagementSystem.DTO.Violations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DormitoryManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin/dashboard")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
+
     public class DashboardController : ControllerBase
     {
         private readonly IRoomBUS _roomBUS;
