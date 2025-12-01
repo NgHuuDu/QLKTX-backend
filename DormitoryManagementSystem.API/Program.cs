@@ -53,6 +53,35 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// --- 2. CẤU HÌNH JWT AUTHENTICATION ---
+// Lấy Key từ appsettings.json 
+var secretKey = builder.Configuration["Jwt:Key"] ?? "DayLaCaiKeyBiMatCuaNhomChungToiKhongDuocTietLo123456"; 
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        // Kiểm tra chữ ký (Quan trọng nhất)
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+
+        // Tạm thời tắt check Issuer/Audience để tránh lỗi cấu hình domain khi deploy Render
+        // (Nếu muốn bảo mật cao hơn thì bật lên true và điền đúng domain vào appsettings)
+        ValidateIssuer = false, 
+        ValidateAudience = false,
+        
+        // Kiểm tra thời gian hết hạn (Token expired)
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+
 // CORS
 builder.Services.AddCors(options =>
 {
