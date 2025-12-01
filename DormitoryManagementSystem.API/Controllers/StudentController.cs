@@ -1,4 +1,5 @@
 ﻿using DormitoryManagementSystem.BUS.Interfaces;
+using DormitoryManagementSystem.DTO.Students;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,68 @@ namespace DormitoryManagementSystem.API.Controllers
                     return NotFound(new { message = "Không tìm thấy hồ sơ sinh viên trong hệ thống." });
 
                 return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateStudent([FromBody] StudentCreateDTO dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                var newStudentId = await _studentBUS.AddStudentAsync(dto);
+                return StatusCode(201, new { message = "Thêm sinh viên thành công!", studentId = newStudentId });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpPut("{id}")]
+        
+        public async Task<IActionResult> UpdateStudent(string id, [FromBody] StudentUpdateDTO dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                
+                await _studentBUS.UpdateStudentAsync(id, dto);
+                return Ok(new { message = "Cập nhật thông tin thành công!" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteStudent(string id)
+        {
+            try
+            {
+                await _studentBUS.DeleteStudentAsync(id);
+                return Ok(new { message = "Xóa hồ sơ sinh viên thành công!" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex) 
+            {
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {

@@ -1,4 +1,6 @@
 ﻿using DormitoryManagementSystem.BUS.Interfaces;
+using DormitoryManagementSystem.DTO.News;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/news")]
@@ -38,11 +40,76 @@ public class NewsController : ControllerBase
             if (news == null)
                 return NotFound(new { message = "Tin tức không tồn tại" });
 
-            return Ok(news); 
+            return Ok(news);
         }
         catch (Exception ex)
         {
             return StatusCode(500, new { message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> CreateNews([FromBody] NewsCreateDTO dto)
+    {
+        if(!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        try
+        {
+            var newNewsId = await _newsBUS.AddNewsAsync(dto);
+            return StatusCode(201, new { message = "Đăng tin thành công!", newsId = newNewsId });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+        }
+    }
+
+    [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> UpdateNews(string id, [FromBody] NewsUpdateDTO dto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        try
+        {
+            await _newsBUS.UpdateNewsAsync(id, dto);
+            return Ok(new { message = "Cập nhật bài viết thành công!" });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+        }
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> DeleteNews(string id)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        try
+        {
+            await _newsBUS.DeleteNewsAsync(id);
+            return Ok(new { message = "Xóa bài viết thành công!" });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
         }
     }
 }

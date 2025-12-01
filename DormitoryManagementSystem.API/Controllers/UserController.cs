@@ -47,5 +47,53 @@ namespace DormitoryManagementSystem.API.Controllers
                 return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
             }
         }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllUsers([FromQuery] string? search)
+        {
+            var users = await _userBUS.GetAllUsersAsync();
+            return Ok(users);
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateDTO dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                
+                var newUserId = await _userBUS.AddUserAsync(dto);
+                return StatusCode(201, new { message = "Tạo tài khoản thành công!", userId = newUserId });
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            try
+            {
+                await _userBUS.DeleteUserAsync(id);
+                return Ok(new { message = "Xóa tài khoản thành công!" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
     }
 }
