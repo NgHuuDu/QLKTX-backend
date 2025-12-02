@@ -37,6 +37,7 @@ namespace DormitoryManagementSystem.DAO.Implementations
         {
             return await _context.Users.AsNoTracking()
                                        .Where(user => user.Username == username)
+                                       .Include(user => user.Student)
                                        .FirstOrDefaultAsync();
         }
 
