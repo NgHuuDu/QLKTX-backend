@@ -19,7 +19,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // PUT: api/user/change-password
         [HttpPut("user/change-password")]
-        [Authorize(Roles = "Student")] // tắt cái này để test
+        //[Authorize(Roles = "Student")] // tắt cái này để test
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDTO dto)
         {
             try
@@ -49,7 +49,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllUsers([FromQuery] string? search)
         {
             var users = await _userBUS.GetAllUsersAsync();
@@ -58,7 +58,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateDTO dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -77,7 +77,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             try

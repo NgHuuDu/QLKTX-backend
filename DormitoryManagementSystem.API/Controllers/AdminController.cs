@@ -11,7 +11,7 @@ namespace DormitoryManagementSystem.API.Controllers
 {
     [Route("api/admin")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IAdminBUS _adminBUS;

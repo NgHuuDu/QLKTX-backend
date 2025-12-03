@@ -21,7 +21,7 @@ namespace DormitoryManagementSystem.API.Controllers
         //Student 
         // API : lấy thông tin sinh viên
         [HttpGet("profile")]
-        [Authorize(Roles = "Student")]// tắt này để test
+        //[Authorize(Roles = "Student")]// tắt này để test
         public async Task<IActionResult> GetMyProfile()
         {
             try
@@ -46,7 +46,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateStudent([FromBody] StudentCreateDTO dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -85,7 +85,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteStudent(string id)
         {
             try
@@ -100,7 +100,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
         
         [HttpPut("contact-info")]
-        [Authorize(Roles = "Student")] 
+        //[Authorize(Roles = "Student")] 
         public async Task<IActionResult> UpdateContactInfo([FromBody] StudentContactUpdateDTO dto)
         {
             try

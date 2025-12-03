@@ -25,7 +25,7 @@ public class RoomController : ControllerBase
 
 
     [HttpGet("student/rooms/{RoomID}")]
-    [Authorize(Roles = "Student")]// Tắt cái này mới test được, mới lên khi chạy chính thức
+    //[Authorize(Roles = "Student")]// Tắt cái này mới test được, mới lên khi chạy chính thức
     public async Task<IActionResult> GetRoomDetail(string RoomID)
     {
         try
@@ -49,7 +49,7 @@ public class RoomController : ControllerBase
     //Student 
     // Duyệt phòng ở FE Student, cái trang có hiện thị phòng chi tiết á
     [HttpGet("student/rooms/cards")]
-     [Authorize(Roles = "Student")] // Tắt cái này mới test được, mới lên khi chạy chính thức
+    //[Authorize(Roles = "Student")] // Tắt cái này mới test được, mới lên khi chạy chính thức
     public async Task<IActionResult> SearchRoomInCard(
     [FromQuery] string? buildingId,
     [FromQuery] int? roomNumber,
@@ -81,7 +81,7 @@ public class RoomController : ControllerBase
     // Duyệt phòng ở FE Student, cái trang có hiện thị lưới á
 
     [HttpGet("student/rooms/grid")]
-    [Authorize(Roles = "Student")] // Tắt cái này mới test được, mới lên khi chạy chính thức
+    //[Authorize(Roles = "Student")] // Tắt cái này mới test được, mới lên khi chạy chính thức
     public async Task<IActionResult> SearchRoomInGrid(
     [FromQuery] string? buildingId,
     [FromQuery] int? roomNumber,
@@ -145,7 +145,7 @@ public class RoomController : ControllerBase
     // Tạo phòng mới admin
     // frmAddRoom
     [HttpPost("admin/rooms")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateRoom([FromBody] RoomCreateDTO dto)
     {
         if(!ModelState.IsValid)
@@ -165,7 +165,7 @@ public class RoomController : ControllerBase
     // frmRoomDetail
     // Cap nhat phong
     [HttpPut("admin/rooms/{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateRoom(string id, [FromBody] RoomUpdateDTO dto)
     {
         if (dto == null)
@@ -196,7 +196,7 @@ public class RoomController : ControllerBase
     // Xoa phong
 
     [HttpDelete("admin/rooms/{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public async Task<IActionResult> DeleteRoom(string id)
     {
@@ -222,7 +222,7 @@ public class RoomController : ControllerBase
     // Lọc theo tên và mã phòng
     //ucRoomManagement
     [HttpGet("admin/rooms/search")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public async Task<IActionResult> SearchRooms([FromQuery] string q)
     {

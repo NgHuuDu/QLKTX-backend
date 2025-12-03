@@ -18,7 +18,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
 
         [HttpGet("student/violations")]
-        [Authorize(Roles = "Student")]
+        //[Authorize(Roles = "Student")]
         public async Task<IActionResult> GetMyViolations([FromQuery] string? status)
         {
             try

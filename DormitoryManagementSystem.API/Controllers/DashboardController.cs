@@ -15,7 +15,7 @@ namespace DormitoryManagementSystem.API.Controllers
 {
     [Route("api/admin/dashboard")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public class DashboardController : ControllerBase
     {

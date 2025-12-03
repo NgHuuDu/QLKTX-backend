@@ -49,7 +49,7 @@ public class NewsController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateNews([FromBody] NewsCreateDTO dto)
     {
         if(!ModelState.IsValid)
@@ -68,7 +68,7 @@ public class NewsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateNews(string id, [FromBody] NewsUpdateDTO dto)
     {
         if (!ModelState.IsValid)
@@ -91,7 +91,7 @@ public class NewsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteNews(string id)
     {
         if (!ModelState.IsValid)

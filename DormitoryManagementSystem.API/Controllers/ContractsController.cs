@@ -23,7 +23,7 @@ namespace DormitoryManagementSystem.API.Controllers
         //Student
         // API: Sinh viên xem hợp đồng CỦA CHÍNH MÌNH
         [HttpGet("student/my-contracts")]
-        [Authorize(Roles = "Student")] // Nhớ bật lại khi có Token
+        //[Authorize(Roles = "Student")] // Nhớ bật lại khi có Token
         public async Task<IActionResult> GetMyContracts()
         {
             try
@@ -48,7 +48,7 @@ namespace DormitoryManagementSystem.API.Controllers
         //Student
         // API: Sinh viên gửi đơn đăng ký
         [HttpPost("student/contracts")]
-        [Authorize(Roles = "Student")] 
+        //[Authorize(Roles = "Student")] 
         public async Task<IActionResult> RegisterContract([FromBody] ContractRegisterDTO dto)
         {
             try
@@ -76,7 +76,7 @@ namespace DormitoryManagementSystem.API.Controllers
         // Admin
         //ucContractManagement
         [HttpGet("admin/contracts")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetContracts([FromQuery] string? searchTerm)
         {
             if (!ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace DormitoryManagementSystem.API.Controllers
         }
 
         [HttpGet("admin/contracts/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> GetContractById(string id)
         {
@@ -155,7 +155,7 @@ namespace DormitoryManagementSystem.API.Controllers
         // frmContractDetail
         // Cap nhat phong
         [HttpPut("admin/contracts/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateContract(string id, [FromBody] ContractUpdateDTO dto)
         {
             if(!ModelState.IsValid)
@@ -183,7 +183,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // Xoa hop dong
         [HttpDelete("admin/contracts/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> DeleteContract(string id)
         {
@@ -208,7 +208,7 @@ namespace DormitoryManagementSystem.API.Controllers
 
         // frmFilterContract
         [HttpGet("admin/contracts/filter")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> GetContractsByMultiCondition([FromQuery] ContractFilterDTO filter)
         {

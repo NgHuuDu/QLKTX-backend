@@ -24,7 +24,7 @@ public class PaymentController : ControllerBase
 
     // API: Lấy danh sách thanh toán của sinh viên (Có thể lọc theo trạng thái)
     [HttpGet("student/payments")]
-    [Authorize(Roles = "Student")]
+    //[Authorize(Roles = "Student")]
     public async Task<IActionResult> GetMyPayments([FromQuery] string? status)
     {
         var studentId = User.FindFirst("StudentID")?.Value; // Lấy từ Token
@@ -43,7 +43,7 @@ public class PaymentController : ControllerBase
 
     // Lấy danh sách & Lọc
     [HttpGet("admin/payments")]
-   [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAdminPaymentList(
         [FromQuery] int? month,
         [FromQuery] string? status,
@@ -69,7 +69,7 @@ public class PaymentController : ControllerBase
     */
     // PUT: api/payment/{id}/confirm
     [HttpPut("admin/payments/{id}/confirm")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> ConfirmPayment(string id, [FromBody] PaymentConfirmDTO dto)
     {
         try
@@ -97,7 +97,7 @@ public class PaymentController : ControllerBase
 
     //Xóa hóa đơn (Nếu tạo sai)
     [HttpDelete("admin/payments/{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteBill(string id)
     {
         await _paymentBUS.DeletePaymentAsync(id);
@@ -105,7 +105,7 @@ public class PaymentController : ControllerBase
     }
 
     [HttpPost("admin/payments/auto-generate")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> GenerateBills([FromQuery] int month, [FromQuery] int year)
     {
         try
