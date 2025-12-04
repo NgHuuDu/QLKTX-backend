@@ -26,7 +26,8 @@ namespace DormitoryManagementSystem.API.Controllers
         {
             try
             {
-                var studentId = User.FindFirst("StudentID")?.Value;
+                var studentId = "STU004"; // Hardcode để test
+                //var studentId = User.FindFirst("StudentID")?.Value;
                 if (string.IsNullOrEmpty(studentId))
                 {
                     return Unauthorized(new { message = "Token không hợp lệ: Không tìm thấy StudentID." });
@@ -105,7 +106,8 @@ namespace DormitoryManagementSystem.API.Controllers
         {
             try
             {
-                var studentId = User.FindFirst("StudentID")?.Value;
+                var studentId = "STU004"; // Hardcode để test
+                //var studentId = User.FindFirst("StudentID")?.Value;
 
 
                 if (string.IsNullOrEmpty(studentId))

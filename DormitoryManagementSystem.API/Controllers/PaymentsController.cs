@@ -27,7 +27,8 @@ public class PaymentController : ControllerBase
     //[Authorize(Roles = "Student")]
     public async Task<IActionResult> GetMyPayments([FromQuery] string? status)
     {
-        var studentId = User.FindFirst("StudentID")?.Value; // Lấy từ Token
+        var studentId = "STU004"; // Hardcode cho dễ test
+        //var studentId = User.FindFirst("StudentID")?.Value; // Lấy từ Token
         var list = await _paymentBUS.GetPaymentsByStudentAndStatusAsync(studentId, status);
 
         return Ok(list);

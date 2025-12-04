@@ -23,7 +23,8 @@ namespace DormitoryManagementSystem.API.Controllers
         {
             try
             {
-                 var studentId = User.FindFirst("StudentID")?.Value;
+                var studentId = "STU004";
+                //var studentId = User.FindFirst("StudentID")?.Value;
 
                 if (string.IsNullOrEmpty(studentId))
                     return Unauthorized(new { message = "Không tìm thấy thông tin sinh viên." });
@@ -76,8 +77,7 @@ namespace DormitoryManagementSystem.API.Controllers
         {
             try
             {
-                var userId = User.FindFirst("UserID")?.Value;
-                if (!string.IsNullOrEmpty(userId)) dto.ReportedByUserID = userId;
+              
 
                 var id = await _violationBUS.AddViolationAsync(dto);
                 return Ok(new { message = "Tạo vi phạm thành công", id });

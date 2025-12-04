@@ -25,7 +25,8 @@ namespace DormitoryManagementSystem.API.Controllers
             try
             {
                 
-                 var userId = User.FindFirst("UserID")?.Value;
+                var userId = "STU004"; // Hardcode để test
+                // var userId = User.FindFirst("UserID")?.Value;
 
                 if (string.IsNullOrEmpty(userId))
                     return Unauthorized(new { message = "Token không hợp lệ hoặc đã hết hạn." });
